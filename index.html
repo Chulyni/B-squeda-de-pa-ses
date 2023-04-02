@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="assets/sass/estilos.css">
 </head>
 <body>
-    <nav class="navbar">
+    <nav role="navbar" class="navbar">
       <div class="container navbar-content">
         <h1 class="title">Where in the world?</h1>
         <button id="dark-mode" class="dark-mode">
@@ -25,12 +25,12 @@
     </nav>
     <div class="container filter-content my-2">
       <!--Search-->
-        <form id="formulario" class="formulario" >
+        <form role="formulario" id="formulario" class="formulario" >
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input class="form-search" id="inputFormulario" type="text" placeholder="Search for a country...">
+          <input role="search" class="form-search" id="inputFormulario" type="text" placeholder="Search for a country...">
         </form>
         <!--Filter-->
-        <div class="custom-select" width = "200px">
+        <div role="filter-region" class="custom-select" width = "200px">
           <select >
             <option >Filter by Region</option>
             <option value="">All</option>
@@ -42,7 +42,7 @@
           </select>
         </div>
     </div>
-    <main class="container grid flags"></main>
+    <main role="main" class="container grid flags"></main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/custom-select.js"></script>
