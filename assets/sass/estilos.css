@@ -1,4 +1,8 @@
 /*Estilos generales*/
+@font-face {
+  font-family: "Apple Juice Font";
+  src: url(../../font/Apple\ Juice\ Regular.ttf);
+}
 html {
   box-sizing: border-box;
 }
@@ -7,10 +11,79 @@ html {
   box-sizing: inherit;
 }
 
+.description_modal {
+  color: #202D36;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  font-weight: 600;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+/* CSS */
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-more {
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2;
+  outline: transparent;
+  padding: 0 0.6rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s ease-in-out;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+.no-result {
+  text-align: center;
+  color: var(--color-text);
+}
+
+.btn-more:not([disabled]):focus {
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5), 0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.btn-more:not([disabled]):hover {
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5), 0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.btn-back {
+  display: inline-block;
+  padding: 0.5rem 3rem;
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transform: 0.5s ease;
+}
+.btn-back i {
+  padding-right: 0.5rem;
+}
+
+.btn-back:hover {
+  background-color: var(--color-bg-background);
+}
+
 body {
   --color-bg: #FAFAFA;
   --color-bg-secondary: #FFFF;
   --color-text: #212123;
+  --color-bg-background: #ecebeb;
   background-color: var(--color-bg);
   font-family: "Nunito Sans", sans-serif;
 }
@@ -18,6 +91,7 @@ body {
 body.dark-mode {
   --color-bg: #202D36;
   --color-bg-secondary: #2B3743;
+  --color-bg-background: #1d2830;
   --color-text: #FBFFFF;
 }
 
@@ -32,7 +106,12 @@ body.dark-mode {
 }
 
 .img-fluid {
-  width: 100%;
+  max-width: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 /*navbar*/
@@ -56,6 +135,7 @@ body.dark-mode {
 .navbar .navbar-content h1 {
   font-size: 1.2rem;
   color: var(--color-text);
+  cursor: pointer;
 }
 
 /*formulario*/
@@ -78,6 +158,9 @@ body.dark-mode {
   outline: none;
   background-color: transparent;
 }
+.filter-content .formulario .form-search:focus {
+  color: var(--color-text);
+}
 .filter-content .formulario .form-search::-moz-placeholder {
   color: var(--color-text);
 }
@@ -88,7 +171,7 @@ body.dark-mode {
 /*main*/
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 2rem 1rem;
   margin-bottom: 2rem;
 }
@@ -98,10 +181,10 @@ body.dark-mode {
   border-radius: 10px;
   transition: 0.5s ease;
   cursor: pointer;
+  overflow: hidden;
 }
 .grid .card img {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  height: 25vh;
 }
 .grid .card .card-content {
   padding: 1rem;
@@ -120,10 +203,40 @@ body.dark-mode {
   transform: scale(1.05);
 }
 
+.details {
+  display: flex;
+  flex-direction: column;
+}
+.details .card {
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.details .card .card-content {
+  padding: 1rem;
+}
+.details .card .card-content h2 {
+  color: var(--color-text);
+}
+.details .card .card-content p {
+  color: var(--color-text);
+  font-weight: 300;
+}
+.details .card .card-content p span {
+  font-weight: 600;
+}
+
 @media (min-width: 700px) {
   .filter-content {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+  .details .card {
+    display: flex;
+  }
+  .details .card img {
+    width: 50%;
+    margin-right: 5rem;
   }
 }/*# sourceMappingURL=estilos.css.map */

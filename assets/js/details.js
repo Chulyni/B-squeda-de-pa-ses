@@ -1,50 +1,48 @@
-/*Variables */
-
-
-const formulario = document.getElementById("formulario");
-const inputFormulario = document.getElementById("inputFormulario")
-const container__flags = document.querySelector(".flags")
 const title = document.querySelector(".title");
+const details = document.querySelector(".details")
+const urlParam = new URLSearchParams(window.location.search);
+const param = urlParam.get("name");
+
+console.log(param)
+
 
 
 title.addEventListener("click", () => location.reload())
 
 document.addEventListener("DOMContentLoaded", () =>{
- 
-    if(JSON.parse(localStorage.getItem("theme")) == null){
-        localStorage.setItem("theme",JSON.stringify("light"))
-    }else{
-        JSON.parse(localStorage.getItem("theme"))
-    }
-    modeDefault()
+  if(JSON.parse(localStorage.getItem("theme")) == null){
+    localStorage.setItem("theme",JSON.stringify("light"))
+}else{
+    JSON.parse(localStorage.getItem("theme"))
+}
+modeDefault()
+
     fetchData();
 })
-
 
 const fetchData = async () =>{
    try {
     const url = "https://restcountries.com/v3.1/all";
     const res = await fetch(url);
     const data = await res.json();
-    flags(data)
+
+    const filterData = data.filter(item => item.name.common === param)
+
+    flags(filterData)
     alertaSucess()
-    formularioBusqueda(data)
-    filtradoRegion(data)
    } catch (error) {
     alertaFailed(error)
-   }
+}
 } 
 
-const flags =  data =>{
+const flags = data =>{
     let html = "";
-    if(data.length <= 0){
-        html = 
-        `<div class="no-result">
-            <h2>No results available</h2>
-        </div>`
-    }else{
+ 
         data.forEach(pais => {
-            const {name,flags,population,region,capital} = pais
+            const {name,flags,population,region,capital,languages,borders} = pais
+            const currencies = Object.values(pais.currencies);
+            const lenguajesTotales = Object.values(languages)
+            console.log(pais)
             html += 
             `  <article class="card">
             <img src="${flags.svg}" alt="flag-${name.common}" class="img-fluid">
@@ -62,17 +60,31 @@ const flags =  data =>{
                 <span>Capital:</span>
                 ${capital}
               </p>
-              <div class="center">
-              <a class="btn-more" href="details.html?name=${name.common}">More info <i class="fa-solid fa-angles-right"></i> </a>
-              </div>
+             
+              <p class="domain">
+                <span>Top level domain:</span>
+                ${capital}
+              </p>
+             
+              <p class="currencies">
+                <span>Currencies:</span>
+                ${currencies[0].name}
+              </p>
+              <p class="languages">
+                <span>Languagues:</span>
+                ${lenguajesTotales}
+              </p>
+             
+            
             </div>
-          </article>`
-        });
-    }
- 
-    container__flags.innerHTML = html
+          </article>`;
+          
 
+        });
+ 
+    details.innerHTML = html
 }
+
 
 const alertaSucess = () =>{
     const Toast = Swal.mixin({
@@ -89,9 +101,8 @@ const alertaSucess = () =>{
       
       Toast.fire({
         icon: 'success',
-        title: 'Se ha cargado la lista de paises correctamente!'
+        title: 'Se ha cargado el pais seleccionado correctamente!'
       })
-
 }
 const alertaFailed = (error) =>{
     const Toast = Swal.mixin({
