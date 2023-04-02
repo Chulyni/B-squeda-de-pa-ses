@@ -104,7 +104,7 @@ body.dark-mode {
 }
 
 .img-fluid {
-  max-width: 100%;
+  width: 100%;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
@@ -155,8 +155,6 @@ body.dark-mode {
   border: none;
   outline: none;
   background-color: transparent;
-}
-.filter-content .formulario .form-search:focus {
   color: var(--color-text);
 }
 .filter-content .formulario .form-search::-moz-placeholder {
@@ -169,7 +167,7 @@ body.dark-mode {
 /*main*/
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
   gap: 2rem 1rem;
   margin-bottom: 2rem;
 }

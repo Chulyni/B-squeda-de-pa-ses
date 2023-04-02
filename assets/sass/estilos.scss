@@ -101,7 +101,7 @@ body.dark-mode{
     margin-bottom: 2rem;
 }
 .img-fluid{
-    max-width: 100%;
+    width:  100%;
     display: block;
     object-fit: cover;
     border-top-left-radius: 10px;
@@ -147,10 +147,10 @@ body.dark-mode{
             border: none;
             outline: none;
             background-color: transparent;
-        }
-        .form-search:focus{
             color: var(--color-text);
+
         }
+       
      
     .form-search::placeholder{
         color: var(--color-text);
@@ -162,7 +162,7 @@ body.dark-mode{
 
 .grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(250px,max-content));
     gap: 2rem 1rem;
     margin-bottom: 2rem;
     .card{
