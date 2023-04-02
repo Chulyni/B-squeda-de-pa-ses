@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Details</title>
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/sass/normalize.css">
-    <link rel="stylesheet" href="assets/sass/estilos.css">
-
-</head>
-<body>
-
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/sass/normalize.css" />
+    <link rel="stylesheet" href="assets/sass/estilos.css" />
+  </head>
+  <body>
+    <!--Navbar-->
     <nav role="navbar" class="navbar">
-        <div class="container navbar-content">
-          <h1 class="title">Where in the world?</h1>
-          <button id="dark-mode" class="dark-mode">
-            <i class="fa-regular fa-moon"></i>
-            Dark Mode
-          </button>
-         
-        </div>
-    </nav>  
-    <div role="main" class="container ">
-        <a class="btn-back my-2  " href="index.html"> <i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a>
-
-        <div class="details my-2"></div>
+      <div class="container navbar-content">
+        <h1 class="title">Where in the world?</h1>
+        <button id="dark-mode" class="dark-mode">
+          <i class="fa-regular fa-moon"></i>
+          Dark Mode
+        </button>
+      </div>
+    </nav>
+    <!--Main(container of details flag)-->
+    <div role="main" class="container">
+      <a class="btn-back my-2" href="index.html">
+        <i class="fa-sharp fa-solid fa-arrow-left"></i> Back</a
+      >
+      <div class="details my-2"></div>
     </div>
-   
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/details.js"></script>
+    <script src="assets/js/fetchData.js"></script>
     <script src="assets/js/dark-mode.js"></script>
-</body>
+    <script src="assets/js/alerts.js"></script>
+  </body>
 </html>

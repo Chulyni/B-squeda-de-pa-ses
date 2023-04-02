@@ -3,7 +3,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -13,10 +15,10 @@ html {
 }
 
 .btn-more {
-  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  background: linear-gradient(to bottom right, #ef4765, #ff9a5a);
   border: 0;
   border-radius: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -96,8 +98,8 @@ html {
 }
 
 body {
-  --color-bg: #FAFAFA;
-  --color-bg-secondary: #FFFF;
+  --color-bg: #fafafa;
+  --color-bg-secondary: #ffff;
   --color-text: #212123;
   --color-bg-background: #ecebeb;
   background-color: var(--color-bg);
@@ -105,10 +107,10 @@ body {
 }
 
 body.dark-mode {
-  --color-bg: #202D36;
-  --color-bg-secondary: #2B3743;
+  --color-bg: #202d36;
+  --color-bg-secondary: #2b3743;
   --color-bg-background: #1d2830;
-  --color-text: #FBFFFF;
+  --color-text: #fbffff;
 }
 
 .container {
