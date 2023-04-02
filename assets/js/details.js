@@ -80,6 +80,7 @@ const flags = (data,dataAll) =>{
                 <span>Capital:</span>
                 ${capital}
               </p>
+              <a class="btn-map" href="mapa.html?name=${name.common}&capital=${capital}">Ver mapa <i class="fa-solid fa-map-location-dot"></i></a>
               </div>
               <div class="section-2">
               <p class="domain">
