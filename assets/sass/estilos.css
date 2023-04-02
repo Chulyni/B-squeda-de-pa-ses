@@ -1,8 +1,4 @@
 /*Estilos generales*/
-@font-face {
-  font-family: "Apple Juice Font";
-  src: url(../../font/Apple\ Juice\ Regular.ttf);
-}
 html {
   box-sizing: border-box;
 }
@@ -11,15 +7,6 @@ html {
   box-sizing: inherit;
 }
 
-.description_modal {
-  color: #202D36;
-  font-size: 1.5rem;
-  letter-spacing: 4px;
-  font-weight: 600;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-}
-
-/* CSS */
 .center {
   display: flex;
   justify-content: center;
@@ -51,6 +38,7 @@ html {
 .no-result {
   text-align: center;
   color: var(--color-text);
+  font-weight: 800;
 }
 
 .btn-more:not([disabled]):focus {
@@ -77,6 +65,16 @@ html {
 
 .btn-back:hover {
   background-color: var(--color-bg-background);
+}
+
+.details .card-content {
+  width: 100%;
+  margin-left: 1rem;
+}
+.details .card-content .container-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 body {
@@ -209,11 +207,14 @@ body.dark-mode {
 }
 .details .card {
   border-radius: 10px;
-  cursor: pointer;
   overflow: hidden;
 }
 .details .card .card-content {
   padding: 1rem;
+}
+.details .card .card-content .container-details {
+  display: flex;
+  flex-direction: column;
 }
 .details .card .card-content h2 {
   color: var(--color-text);
@@ -225,6 +226,26 @@ body.dark-mode {
 .details .card .card-content p span {
   font-weight: 600;
 }
+.details .card .card-content .borders p {
+  color: var(--color-text);
+}
+.details .card .card-content .borders .borders__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.details .card .card-content .borders .borders__container .border {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 0.5rem 1.2rem;
+  text-decoration: none;
+  transition: 0.5s ease;
+}
+.details .card .card-content .borders .borders__container .border:hover {
+  background-color: var(--color-bg-background);
+  transform: scale(1.05);
+}
 
 @media (min-width: 700px) {
   .filter-content {
@@ -235,8 +256,22 @@ body.dark-mode {
   .details .card {
     display: flex;
   }
+  .details .card .card-content {
+    margin-left: 1rem;
+  }
+  .details .card .card-content .container-details {
+    flex-direction: row;
+  }
   .details .card img {
     width: 50%;
-    margin-right: 5rem;
   }
+}
+.details .card-content {
+  width: 100%;
+  margin-left: 1rem;
+}
+.details .card-content .container-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }/*# sourceMappingURL=estilos.css.map */

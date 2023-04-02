@@ -16,8 +16,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     JSON.parse(localStorage.getItem("theme"))
 }
 modeDefault()
-
-    fetchData();
+fetchData();
 })
 
 const fetchData = async () =>{
@@ -28,26 +27,43 @@ const fetchData = async () =>{
 
     const filterData = data.filter(item => item.name.common === param)
 
-    flags(filterData)
+    flags(filterData,data)
     alertaSucess()
    } catch (error) {
     alertaFailed(error)
 }
 } 
 
-const flags = data =>{
+const flags = (data,dataAll) =>{
+  console.log(dataAll)
     let html = "";
  
         data.forEach(pais => {
-            const {name,flags,population,region,capital,languages,borders} = pais
+          console.log(pais)
+            const {name,flags,population,region,capital,languages,borders,tld,subregion} = pais
             const currencies = Object.values(pais.currencies);
             const lenguajesTotales = Object.values(languages)
-            console.log(pais)
+            const nativeName = Object.values(name.nativeName)
+            let btnsBorder = "";
+            if(borders === undefined){
+              btnsBorder = `<p class="no-result">No results</p>`;
+            }else{
+              //code
+              btnsBorder = encontrarNameBorder(dataAll,borders)
+            
+            }
+            
             html += 
             `  <article class="card">
             <img src="${flags.svg}" alt="flag-${name.common}" class="img-fluid">
             <div class="card-content">
               <h2>${name.common}</h2>
+              <div class="container-details">
+              <div class = "section-1">
+              <p class="native-name">
+                <span>Native name: </span>
+                ${nativeName[0].common}
+              </p>
               <p class="population">
                 <span>Population:</span>
                 ${population}
@@ -56,14 +72,19 @@ const flags = data =>{
                 <span>Region:</span>
                 ${region}
               </p>
+              <p class="sub_region">
+                <span>Sub Region:</span>
+                ${subregion}
+              </p>
               <p class="capital">
                 <span>Capital:</span>
                 ${capital}
               </p>
-             
+              </div>
+              <div class="section-2">
               <p class="domain">
                 <span>Top level domain:</span>
-                ${capital}
+                ${tld}
               </p>
              
               <p class="currencies">
@@ -74,8 +95,19 @@ const flags = data =>{
                 <span>Languagues:</span>
                 ${lenguajesTotales}
               </p>
-             
-            
+              </div>
+            </div>
+            <div class="borders">
+            <p>Border Countries:</p>
+            <div class="borders__container">
+            ` 
+            +
+            btnsBorder
+            +
+            ` 
+           </div>
+            </div>
+
             </div>
           </article>`;
           
@@ -84,7 +116,17 @@ const flags = data =>{
  
     details.innerHTML = html
 }
+const encontrarNameBorder = (data,borders) =>{
+  let btnsBorder = "";
+  borders.forEach( border =>{
+    const res = data.filter( elemento => elemento.cca3 === border || elemento.cca2 === border)
+    const nameBorderCountry = res[0].name.common;
+    btnsBorder+= ` <a class="border" href="details.html?name=${nameBorderCountry}">${border}</a>`
 
+    })
+    return btnsBorder;
+ 
+}
 
 const alertaSucess = () =>{
     const Toast = Swal.mixin({
@@ -121,4 +163,5 @@ const alertaFailed = (error) =>{
         icon: 'error',
         title: `¡Hubo un error inesperado! : ${error}`
       })
+      console.log(error)
 }
